@@ -2,27 +2,23 @@ import streamlit as st
 import pandas as pd
 from io import BytesIO
 
-from parser.column_detector import (
-    detect_property_column
-)
-
-from parser.master_parser import (
-    parse_dataframe
-)
-
-from dashboard.summary import (
-    get_summary
-)
-
 st.set_page_config(
-    page_title="Rustomjee Sales Strategy Engine by ST",
+    page_title="Rustomjee Sales Strategy Engine",
     layout="wide"
 )
 
-st.title(
-    "🏢 IGR Property Description Parser"
-)
+st.title("🏢 Rustomjee Sales Strategy Engine")
 
+try:
+    from parser.column_detector import detect_property_column
+    from parser.master_parser import parse_dataframe
+    from dashboard.summary import get_summary
+
+    st.success("✅ All modules imported successfully.")
+
+except Exception as e:
+    st.error(f"❌ Import Error: {e}")
+    st.stop()
 uploaded = st.file_uploader(
     "Upload Excel File",
     type=["xlsx", "xls", "csv"]
