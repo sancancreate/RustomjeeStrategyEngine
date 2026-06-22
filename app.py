@@ -15,7 +15,7 @@ from dashboard.summary import (
 )
 
 st.set_page_config(
-    page_title="IGR Property Parser",
+    page_title="Rustomjee Sales Strategy Engine by ST",
     layout="wide"
 )
 
